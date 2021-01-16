@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { WeatherResponseType } from "../../types/types"
+import Preloader from "../Preloader/Preloader"
 import WeatherData from "../WeatherData/WeatherData"
 import useStyle from "./MainStyle"
 
@@ -29,8 +30,9 @@ const Main: React.FunctionComponent <MainPropsType> = (props) => {
             <div className = {s.inputBlock} >
                 <input placeholder = "Enter a city name" className = "form-control" onKeyPress = { getDataHandler } onChange = { onChangeHadler } type = "text" value = { query } />
             </div>
-            {props.data.weather &&
-                <WeatherData data = {props.data} />
+            {props.data.weather 
+                ? <WeatherData data = {props.data} />
+                : <Preloader />
             }
         </div>
     )
