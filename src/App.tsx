@@ -4,7 +4,7 @@ import MainContainer from './components/Main/MainContainer';
 
 function App() {
   return (
-    <div>
+    <div className = "container" >
       <Header />
       <MainContainer />
     </div>

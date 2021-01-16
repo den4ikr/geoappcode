@@ -35,7 +35,11 @@ type ThunkType = ThunkAction <Promise <void>, AppStateType, unknown, ActionsType
 
 export const getWeather = (q: string): ThunkType => async (dispatch) => {
     const response = await API.getWeather (q)
-    debugger
+    dispatch ( actions.setData (response.data) )
+}
+
+export const getWeatherByCoordinates = (lat: number, lon: number): ThunkType => async (dispatch) => {
+    const response = await API.getWeatherByLatAndLon (lat, lon)
     dispatch ( actions.setData (response.data) )
 }
 

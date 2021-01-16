@@ -3,5 +3,8 @@ import axios from "axios"
 export const API = {
     getWeather (q: string) {
         return axios.get (`https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=fed7d1a56fd2de2f78944ed8d70c4f97`)
+    },
+    getWeatherByLatAndLon (lat: number, lon: number) {
+        return axios.get (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=fed7d1a56fd2de2f78944ed8d70c4f97`)
     }
 }
