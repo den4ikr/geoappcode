@@ -10,5 +10,7 @@ export type WeatherResponseType = {
         icon: string,
     },
     name: string,
-    country: string,
+    sys: {
+        country: string,
+    }
 }
