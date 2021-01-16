@@ -6,7 +6,7 @@ const Header: React.FunctionComponent = () => {
     return (
         <div className = {s.header} >
             <div className = {s.title} >
-                Header
+                Open Weather Map
             </div>
         </div>
     )

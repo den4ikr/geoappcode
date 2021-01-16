@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { WeatherResponseType } from "../../types/types";
+import { useState } from "react"
+import { WeatherResponseType } from "../../types/types"
+import WeatherData from "../WeatherData/WeatherData"
+import useStyle from "./MainStyle"
 
 type MainPropsType = {
     data: WeatherResponseType,
@@ -7,6 +9,7 @@ type MainPropsType = {
 }
 
 const Main: React.FunctionComponent <MainPropsType> = (props) => {
+    const s = useStyle ()
 
     const [ query, setQuery ] = useState ("");
     const onChangeHadler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,23 +25,12 @@ const Main: React.FunctionComponent <MainPropsType> = (props) => {
     
 
     return (
-        <div>
-            <div>
-                <input onKeyPress = { getDataHandler } onChange = { onChangeHadler } type = "text" value = { query } />
+        <div className = {s.mainWrapper} >
+            <div className = {s.inputBlock} >
+                <input placeholder = "Enter a city name" className = "form-control" onKeyPress = { getDataHandler } onChange = { onChangeHadler } type = "text" value = { query } />
             </div>
             {props.data.weather &&
-                <div>
-                    <div>
-                        {props.data.name},
-                    </div>
-                    <div>
-                        {props.data.sys.country}
-                    </div>
-                    <div>
-                        {/* @ts-ignore */}
-                        {props.data.weather[0].main}
-                    </div>
-                </div>
+                <WeatherData data = {props.data} />
             }
         </div>
     )

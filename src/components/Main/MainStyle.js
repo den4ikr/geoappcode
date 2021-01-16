@@ -1,14 +1,14 @@
 import {createUseStyles} from 'react-jss'
 
 const useStyles = createUseStyles ({
-    header: {
-        height: "100px",
+    mainWrapper: {
         display: 'flex',
+        flexDirection: "column",
         alignItems: 'center',
     },
-    title: {
-        fontSize: "35px"
-    },
+    inputBlock: {
+        width: "320px",
+    }
 })
 
 export default useStyles;
