@@ -24,18 +24,18 @@ type PropertiesType <T> = T extends { [key: string]: infer U } ? U : never
 type ActionsTypes = ReturnType <PropertiesType <typeof actions> >
 
 export const actions = {
-    setData: (data: WeatherResponseType): SetDataType => ( { type: SET_DATA, data } as const )
-}
-type SetDataType = {
-    data: WeatherResponseType,
-    type: typeof SET_DATA,
+    setData: (data: WeatherResponseType) => ( { type: SET_DATA, data } as const ),
 }
 
 type ThunkType = ThunkAction <Promise <void>, AppStateType, unknown, ActionsTypes>
 
 export const getWeather = (q: string): ThunkType => async (dispatch) => {
-    const response = await API.getWeather (q)
-    dispatch ( actions.setData (response.data) )
+    try {
+        const response = await API.getWeather (q)
+        dispatch ( actions.setData (response.data) )
+    } catch (error) {
+       alert ("Please enter an existing city")
+    }
 }
 
 export const getWeatherByCoordinates = (lat: number, lon: number): ThunkType => async (dispatch) => {
