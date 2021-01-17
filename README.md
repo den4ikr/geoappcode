@@ -1,3 +1,9 @@
+To set up and run the app you should copy the repository on computer. Open the folder and in the termianl run "npm install" to create the package.json file. The you can open the app in browser by writing one of these command: "npm start" or "yarn start"
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
