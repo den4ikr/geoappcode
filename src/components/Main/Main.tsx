@@ -18,7 +18,12 @@ const Main: React.FunctionComponent <MainPropsType> = (props) => {
     }
     const getDataHandler = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
-            props.getWeather (query)
+            if (!query.length) {
+                alert ("Enter a city name")
+            } else {
+                props.getWeather (query)
+                setQuery ("")
+            }
         }
     }
    
